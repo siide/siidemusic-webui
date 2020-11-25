@@ -6,7 +6,8 @@ import Bounce from "react-reveal/Bounce";
 import Zoom from "react-reveal/Zoom";
 
 //const API = "https://localhost:44309/api";
-const API = "http://localhost:56945/api";
+// const API = "http://localhost:56945/api";
+const API = "http://localhost:5000";
 let timer = null;
 
 export default class MusicData extends Component {
@@ -23,7 +24,7 @@ export default class MusicData extends Component {
     this.setState({ isLoading: true });
     timer = setTimeout(
       () =>
-        fetch(API + "/Music/getMusic")
+        fetch(API + "/getMusic/3n3Ppam7vgaVa1iaRUc9Lp")
           .then(async (response) => {
             const data = await response.json();
             if (!response.ok) {
@@ -302,13 +303,15 @@ export default class MusicData extends Component {
 
                   <Tab eventKey="video" title="Video">
                     <Zoom>
-                        {/* {item.strVideo ? (
+                      {/* {item.strVideo ? (
                           <ReactPlayer width="100%" url={item.strVideo} />
                         ) : (
                           <p>There are no videos for this album!</p>
                         )} */}
-                        <ReactPlayer width="100%" url="https://www.youtube.com/watch?v=lufjE4orQxc&ab_channel=Siide" />
-                    
+                      <ReactPlayer
+                        width="100%"
+                        url="https://www.youtube.com/watch?v=lufjE4orQxc&ab_channel=Siide"
+                      />
                     </Zoom>
                   </Tab>
                 </Tabs>

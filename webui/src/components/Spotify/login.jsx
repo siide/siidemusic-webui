@@ -1,40 +1,77 @@
-import React, {useState, useEffect} from 'react'
-
-const API = "http://localhost:5000/login";
-
-
-export default function Login() {
-const [error, setError] = useState(null);
-const [isLoaded, setIsLoaded] = useState(false);
-const [user, setUser] = useState([]); // Auth if user havetoken or not
-
- useEffect(()=> {
-    fetch(API)
-    .then(res => res.json())
-    .then(
-        (result) => {
-            setIsLoaded(true)
-            setItems(result);
-        },
-        (error) => {
-            setIsLoaded(true);
-            setError(error);
-        }
-    )
-}, [])
+import React, { useState, useRef } from 'react'
+import AuthService from "../../services/authService";
 
 
+export default function Login(props) {
 
-    return(
+// const btnSubmit = useRef();
 
-        (user ? <Login/> : <Search/>)
-    //       <button
-    //   onClick={() => setCount(count + 1)}
-    //       className="btn btn-primary btn-lg"
-    //       type="button"
-    //     >
-    //   Log in to Spotify
-    //     </button>
+// const [loading, setLoading] = useState(false);
+// const [message, setMessage] = useState("");
+
+// const handleLogin = (e) => {
+//     e.preventDefault();
+
+//     console.log("Active");
+//     // setMessage("");
+//     setLoading(true);
+
+//     // btnSubmit.current.validateAll();
+
+    
+//       AuthService.login().then(
+//         () => {
+//           props.history.push();
+//           window.location.reload();
+//         },
+//         (error) => {
+//           const resMessage =
+//             (error.response &&
+//               error.response.data &&
+//               error.response.data.message) ||
+//             error.message ||
+//             error.toString();
+
+//           setLoading(false);
+//           setMessage(resMessage);
+//         }
+//       );
+    
+// //    if (btnSubmit.current.context._errors.length === 0) {
+// //       AuthService.login().then(
+// //         () => {
+// //           props.history.push("/login");
+// //           window.location.reload();
+// //         },
+// //         (error) => {
+// //           const resMessage =
+// //             (error.response &&
+// //               error.response.data &&
+// //               error.response.data.message) ||
+// //             error.message ||
+// //             error.toString();
+
+// //           setLoading(false);
+// //           setMessage(resMessage);
+// //         }
+// //       );
+// //     } else {
+// //       setLoading(false);
+// //     }
+   
+//   };
+
+
+    return (
+      <button onClick={()=>window.location="http://localhost:5000/api/login"} className="btn btn-primary btn-lg">
+            Login to spotify
+            </button>
+            // <button onClick={handleLogin} ref={btnSubmit} className="btn btn-primary btn-lg" disabled={loading}>
+            //   {loading && (
+            //     <span className="spinner-border spinner-border-sm"></span>
+            //   )}
+            //   <span>Login to spotify</span>
+            // </button>
     )
 
 }

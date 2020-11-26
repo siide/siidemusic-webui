@@ -1,25 +1,16 @@
-import React, { useState, Component } from "react";
-import Music from "../Music/music";
-import Login from "../Spotify/login"
+import React, { useState, useEffect } from "react";
+import Login from "../Spotify/login";
 import Slider from "../Slider/slider";
 import LightSpeed from "react-reveal/LightSpeed";
 import Bounce from "react-reveal/Bounce";
 import Zoom from "react-reveal/Zoom";
+import "./header.scss";
+
+export default function Header() {
 
 
-export default class Header extends Component {
-  constructor(props) {
-    super(props);
-    this.state = {
-      drinkData: [],
-      isLoading: false,
-      errorMessage: null,
-    };
-  }
-
-  render() {
-    return (
-         <React.Fragment>
+  return (
+   <React.Fragment>
         <Slider />
         <section className="header-top">
           <div className="container h-100">
@@ -34,8 +25,8 @@ export default class Header extends Component {
                   <h2>Don't know what to listen to?</h2>
                 </Bounce>
                 <Zoom bottom>
-                  <div>
-                    <Login/>
+                <div>
+                  <Login /> 
                   </div>
                 </Zoom>
               </div>
@@ -44,6 +35,5 @@ export default class Header extends Component {
         </section>
    
       </React.Fragment>
-    );
-  }
+  );
 }

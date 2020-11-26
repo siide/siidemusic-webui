@@ -1,5 +1,5 @@
 import React, { Component } from "react";
-import hash from "./hash";
+import queryString, { parse } from "query-string"
 import NavBar from "../Navbar/navbar";
 import Footer from "../Footer/footer";
 import {
@@ -24,39 +24,11 @@ class PageRouter extends Component {
       no_data: false,
       errorMessage: null,
     };
-    this.getCurrentUser = this.getCurrentUser.bind(this);
   }
   componentDidMount() {
-    // Set token
-    let _token = hash.access_token;
-
-    if (_token) {
-      // Set token
-      this.setState({
-        token: _token,
-      });
-      this.getCurrentUser(_token);
-    }
-  }
-  getCurrentUser(token) {
-    fetch(API + token)
-      .then(async (response) => {
-        const data = await response.json();
-        if (!response.ok) {
-          this.setState({
-            no_data: true,
-          });
-          return Promise.reject();
-        }
-
-        console.log(data);
-        this.setState({ no_data: false });
-      })
-      .catch((error) => {
-        this.setState({ errorMessage: error.toString() });
-        console.error("There was an error!", error);
-      });
-  }
+    let parsed = queryString.parse(window.location.search);
+    console.log(parsed);
+ }
   render() {
     return (
       <React.Fragment>
@@ -71,13 +43,14 @@ class PageRouter extends Component {
                 this.isLoggedIn() ? <Redirect to="/login" /> : <Login />
               }
             /> */}
-            <Route
+            {/* <Route
               path="/musiclist"
               exact
               render={() =>
-                !this.state.token ? <Redirect to={API} /> : <MusicList />
+                !this.state.token ? <Redirect to="/" /> : <MusicList />
               }
-            />
+            /> */}
+             <Route path="/musiclist" exact component={MusicList} />
             <Route path="/about" exact component={About} />
             <Route path="/contact" exact component={Contact} />
           </Switch>

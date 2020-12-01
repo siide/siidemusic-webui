@@ -2,76 +2,40 @@ import React, { useState, useRef } from 'react'
 import AuthService from "../../services/authService";
 
 
-export default function Login(props) {
+const Login = ()  => {
+  // const [hasError, setErrors] = useState(false);
+  // const [planets, setPlanets] = useState({});
 
-// const btnSubmit = useRef();
+  // componentDidMount() {
+  //   let parsed = queryString.parse(window.location.search);
+  //   let accessToken = parsed.access_token;
 
-// const [loading, setLoading] = useState(false);
-// const [message, setMessage] = useState("");
+  //   fetch('https://api.spotify.com/v1/me', {
+  //     headers: {
+  //      'Authorization': 'Bearer ' + accessToken
+  //     }
+  //   })
+  //     .then(response => response.json())
+  //     .then(data => this.setState({
+  //       spotifyUserData:
+  //       {
+  //         user:
+  //         {
+  //           name: data.display_name
+  //         }
+  //       }
+  //     }))
+  // };
 
-// const handleLogin = (e) => {
-//     e.preventDefault();
-
-//     console.log("Active");
-//     // setMessage("");
-//     setLoading(true);
-
-//     // btnSubmit.current.validateAll();
-
-    
-//       AuthService.login().then(
-//         () => {
-//           props.history.push();
-//           window.location.reload();
-//         },
-//         (error) => {
-//           const resMessage =
-//             (error.response &&
-//               error.response.data &&
-//               error.response.data.message) ||
-//             error.message ||
-//             error.toString();
-
-//           setLoading(false);
-//           setMessage(resMessage);
-//         }
-//       );
-    
-// //    if (btnSubmit.current.context._errors.length === 0) {
-// //       AuthService.login().then(
-// //         () => {
-// //           props.history.push("/login");
-// //           window.location.reload();
-// //         },
-// //         (error) => {
-// //           const resMessage =
-// //             (error.response &&
-// //               error.response.data &&
-// //               error.response.data.message) ||
-// //             error.message ||
-// //             error.toString();
-
-// //           setLoading(false);
-// //           setMessage(resMessage);
-// //         }
-// //       );
-// //     } else {
-// //       setLoading(false);
-// //     }
-   
-//   };
-
-
-    return (
-      <button onClick={()=>window.location="http://localhost:5000/api/login"} className="btn btn-primary btn-lg">
+  return (
+     <button onClick={()=>window.location="http://localhost:5000/api/login"} className="btn btn-primary btn-lg">
             Login to spotify
             </button>
-            // <button onClick={handleLogin} ref={btnSubmit} className="btn btn-primary btn-lg" disabled={loading}>
-            //   {loading && (
-            //     <span className="spinner-border spinner-border-sm"></span>
-            //   )}
-            //   <span>Login to spotify</span>
-            // </button>
-    )
-
+  )
 }
+
+export default  Login;
+
+
+
+    

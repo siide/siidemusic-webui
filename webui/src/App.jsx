@@ -1,7 +1,8 @@
 import React, { Component }from "react";
 import "bootstrap/dist/css/bootstrap.css";
 import "./App.scss";
-import queryString, { parse } from "query-string"
+import { createStore } from 'redux';
+import queryString, { parse } from "query-string";
 import NavBar from "./components/Navbar/navbar";
 import Footer from "./components/Footer/footer";
 import {
@@ -55,11 +56,11 @@ export default class App extends Component {
           }
         }
       }))
-
  }
   render() {
     let getUserData = this.state.spotifyUserData.user ? this.state.spotifyUserData.user.name : "tomt";
-console.log("Här är datan " + getUserData)
+    console.log("Här är datan " + getUserData)
+    
     return (
       <React.Fragment>
         <Router>

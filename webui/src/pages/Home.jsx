@@ -4,12 +4,13 @@ import Feed from "../components/Feed/feed";
 import Header from "../components/Header/header";
 import Slide from "react-reveal/Slide";
 import Bounce from "react-reveal/Bounce";
+import Playlist from "../components/Playlist/playlist"
 
 export default function Home() {
   return (
     <React.Fragment>
       <Header />
-
+<Playlist/>
       <section className="section">
         <div className="container-fluid">
           <div className="row">

@@ -10,7 +10,7 @@ export default function Home() {
   return (
     <React.Fragment>
       <Header />
-<Playlist/>
+      <Playlist/>
       <section className="section">
         <div className="container-fluid">
           <div className="row">

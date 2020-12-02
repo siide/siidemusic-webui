@@ -1,15 +1,11 @@
-import React, { Component }from "react";
+import React, { Component } from "react";
 import "bootstrap/dist/css/bootstrap.css";
 import "./App.scss";
-import { createStore } from 'redux';
+import { createStore } from "redux";
 import queryString, { parse } from "query-string";
 import NavBar from "./components/Navbar/navbar";
 import Footer from "./components/Footer/footer";
-import {
-  BrowserRouter as Router,
-  Switch,
-  Route,
-} from "react-router-dom";
+import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
 import Home from "./pages/Home";
 import MusicList from "./pages/MusicList";
 import About from "./pages/About";
@@ -23,44 +19,46 @@ let spotifyUserData = {
       {
         height: null,
         url: "",
-        width: null
-      }
-    ]
-  }
-}
+        width: null,
+      },
+    ],
+  },
+};
 
 export default class App extends Component {
   constructor() {
     super();
     this.state = {
       spotifyUserData: {},
-      filterString: ''
+      filterString: "",
     };
   }
-  componentDidMount() {
-    let parsed = queryString.parse(window.location.search);
-    let accessToken = parsed.access_token;
+  // componentDidMount() {
+  //   let parsed = queryString.parse(window.location.search);
+  //   let accessToken = parsed.access_token;
 
-    fetch('https://api.spotify.com/v1/me', {
-      headers: {
-       'Authorization': 'Bearer ' + accessToken
-      }
-    })
-      .then(response => response.json())
-      .then(data => this.setState({
-        spotifyUserData:
-        {
-          user:
-          {
-            name: data.display_name
-          }
-        }
-      }))
- }
+  //   fetch("https://api.spotify.com/v1/me", {
+  //     headers: {
+  //       Authorization: "Bearer " + accessToken,
+  //     },
+  //   })
+  //     .then((response) => response.json())
+  //     .then((data) =>
+  //       this.setState({
+  //         spotifyUserData: {
+  //           user: {
+  //             name: data.display_name,
+  //           },
+  //         },
+  //       })
+  //     );
+  // }
   render() {
-    let getUserData = this.state.spotifyUserData.user ? this.state.spotifyUserData.user.name : "tomt";
-    console.log("Här är datan " + getUserData)
-    
+    // let getUserData = this.state.spotifyUserData.user
+    //   ? this.state.spotifyUserData.user.name
+    //   : "tomt";
+    // console.log("Här är datan " + getUserData);
+
     return (
       <React.Fragment>
         <Router>
